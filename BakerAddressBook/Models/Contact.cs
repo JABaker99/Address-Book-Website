@@ -20,7 +20,7 @@ namespace BakerAddressBook.Models
         public string LastName { get; set; }
 
         [StringLength(50)]
-        public string Nickname { get; set; }
+        public string? Nickname { get; set; }
 
         [Required]
         [Phone]

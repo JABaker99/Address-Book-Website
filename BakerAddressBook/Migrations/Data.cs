@@ -5,9 +5,9 @@ using System;
 
 namespace BakerAddressBook.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class BakerAppDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public BakerAppDbContext(DbContextOptions<BakerAppDbContext> options)
             : base(options)
         {
         }

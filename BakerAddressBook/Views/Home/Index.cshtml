@@ -1,8 +1,38 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model System.Collections.Generic.List<BakerAddressBook.Models.Contact>
+@{
+    ViewData["Title"] = "All Contacts";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>All Contacts</h2>
+
+<p><a class="btn" href="/contacts/create/">Add New Contact</a></p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Nickname</th>
+        <th>Phone</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (BakerAddressBook.Models.Contact contact in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Details", "Contacts", new { id = contact.ContactId })/">
+                    @contact.FirstName @contact.LastName
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Contacts", new { id = contact.ContactId })/">
+                    @contact.Nickname
+                </a>
+            </td>
+            <td>@contact.PhoneNumber</td>
+            <td>@(contact.Category?.Name)</td>
+        </tr>
+    }
+    </tbody>
+</table>
