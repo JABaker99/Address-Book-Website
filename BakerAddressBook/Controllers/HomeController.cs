@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using BakerAddressBook.Data;
 using BakerAddressBook.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,16 +7,21 @@ namespace BakerAddressBook.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly BakerAppDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(BakerAppDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var contacts = _context.Contacts
+                .OrderBy(c => c.LastName)
+                .ThenBy(c => c.FirstName)
+                .ToList();
+
+            return View(contacts);
         }
     }
 }
