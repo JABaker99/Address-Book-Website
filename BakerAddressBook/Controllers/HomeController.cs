@@ -16,7 +16,7 @@ namespace BakerAddressBook.Controllers
 
         public IActionResult Index()
         {
-            var contacts = _context.Contacts
+            List<Contact> contacts = _context.Contacts
                 .OrderBy(c => c.LastName)
                 .ThenBy(c => c.FirstName)
                 .ToList();

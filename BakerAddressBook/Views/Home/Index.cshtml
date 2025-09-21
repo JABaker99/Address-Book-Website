@@ -23,12 +23,31 @@
         {
             <tr>
                 <td>@contact.ContactId</td>
-                <td>@contact.FirstName</td>
-                <td>@contact.LastName</td>
-                <td>@contact.Nickname</td>
+                <td>
+                    <a asp-controller="Contacts" asp-action="Details" asp-route-id="@contact.ContactId">
+                        @contact.FirstName
+                    </a>
+                </td>
+                <td>
+                    <a asp-controller="Contacts" asp-action="Details" asp-route-id="@contact.ContactId">
+                        @contact.LastName
+                    </a>
+                </td>
+                <td>
+                    <a asp-controller="Contacts" asp-action="Details" asp-route-id="@contact.ContactId">
+                        @contact.Nickname
+                    </a>
+                </td>
                 <td>@contact.PhoneNumber</td>
                 <td>@contact.Category</td>
             </tr>
         }
+        <tr>
+            <td colspan="6" class="text-center">
+                <a asp-controller="Contacts" asp-action="Create" class="btn btn-success">
+                    + Add New Contact
+                </a>
+            </td>
+        </tr>
     </tbody>
 </table>
