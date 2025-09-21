@@ -2,15 +2,28 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+#pragma warning disable CA1814
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
+/// <summary>
+/// Baker Address Book - Initial Migration
+/// Author: Jacob Baker
+/// Created: 2025-09-21
+/// Description:
+/// This migration creates the initial database schema for the Baker Address Book application.
+/// It sets up the Categories and Contacts tables, defines their relationships,
+/// and seeds initial data for both tables.
+/// </summary>
 namespace BakerAddressBook.Migrations
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Initial migration class for creating the database schema.
+    /// </summary>
     public partial class Initial : Migration
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Applies the migration to create tables and seed initial data.
+        /// </summary>
+        /// <param name="migrationBuilder">Builder used to configure database schema changes.</param>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -76,7 +89,10 @@ namespace BakerAddressBook.Migrations
                 column: "CategoryId");
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Reverts the migration by dropping the created tables.
+        /// </summary>
+        /// <param name="migrationBuilder">Builder used to undo database schema changes.</param>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

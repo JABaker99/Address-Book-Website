@@ -1,3 +1,11 @@
+/// <summary>
+/// Baker Address Book Web Application
+/// Author: Jacob Baker
+/// Created: 2025-09-21
+/// Description:
+/// This is the entry point for the Baker Address Book ASP.NET Core application.
+/// It sets up services, middleware, routing, and starts the application.
+/// </summary>
 using Microsoft.EntityFrameworkCore;
 using BakerAddressBook.Data;
 
@@ -29,5 +37,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-
+// Starts the application.
 app.Run();

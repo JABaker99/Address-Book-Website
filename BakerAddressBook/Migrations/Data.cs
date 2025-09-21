@@ -1,20 +1,42 @@
 ﻿// Jacob Baker — started 2025-09-20
 using Microsoft.EntityFrameworkCore;
 using BakerAddressBook.Models;
-using System;
 
+/// <summary>
+/// Baker Address Book - Database Context
+/// Author: Jacob Baker
+/// Started: 2025-09-20
+/// Description:
+/// Represents the application's database context for Entity Framework Core.
+/// Handles access to Contacts and Categories tables and seeds initial data.
+/// </summary>
 namespace BakerAddressBook.Data
 {
+    /// <summary>
+    /// EF Core DbContext for the Baker Address Book application.
+    /// </summary>
     public class BakerAppDbContext : DbContext
     {
-        public BakerAppDbContext(DbContextOptions<BakerAppDbContext> options)
-            : base(options)
-        {
-        }
+        /// <summary>
+        /// Constructor accepting DbContext options, passed by dependency injection.
+        /// </summary>
+        /// <param name="options">Options for configuring the DbContext.</param>
+        public BakerAppDbContext(DbContextOptions<BakerAppDbContext> options) : base(options) { }
 
+        /// <summary>
+        /// Represents the Contacts table in the database.
+        /// </summary>
         public DbSet<Contact> Contacts { get; set; }
+
+        /// <summary>
+        /// Represents the Categories table in the database.
+        /// </summary>
         public DbSet<Category> Categories { get; set; }
 
+        /// <summary>
+        /// Configures the model and seeds initial data for the database.
+        /// </summary>
+        /// <param name="modelBuilder">The ModelBuilder used to configure entities.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
