@@ -1,6 +1,6 @@
 ﻿@model BakerAddressBook.Models.Contact
 @{
-    bool isEdit = Model.ContactId > 0;
+    bool isEdit = ViewBag.IsEdit ?? false;
     ViewData["Title"] = isEdit ? "Edit Contact" : "Add Contact";
 }
 
