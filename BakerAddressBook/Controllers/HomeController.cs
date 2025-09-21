@@ -1,7 +1,8 @@
-using System.Diagnostics;
-using BakerAddressBook.Data;
+﻿using BakerAddressBook.Data;
 using BakerAddressBook.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace BakerAddressBook.Controllers
 {
@@ -14,14 +15,16 @@ namespace BakerAddressBook.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Contact> contacts = _context.Contacts
+            List<Contact> contacts = await _context.Contacts
+                .Include(c => c.Category)
                 .OrderBy(c => c.LastName)
                 .ThenBy(c => c.FirstName)
-                .ToList();
+                .ToListAsync();
 
             return View(contacts);
         }
+
     }
 }
