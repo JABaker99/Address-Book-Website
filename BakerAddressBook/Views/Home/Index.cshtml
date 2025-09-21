@@ -37,12 +37,12 @@
                     </a>
                 </td>
                 <td>@contact.PhoneNumber</td>
-                <td>@contact.Category.Name</td>
+                <td>@(contact.Category?.Name ?? "No Category")</td>
             </tr>
         }
         <tr>
             <td colspan="6" class="text-center">
-                <a asp-controller="Contacts" asp-action="Create" class="btn btn-success">
+                <a asp-controller="Contacts" asp-action="Create" class="btn btn-add-contact">
                     + Add New Contact
                 </a>
             </td>

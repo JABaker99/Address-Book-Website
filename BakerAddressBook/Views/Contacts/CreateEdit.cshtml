@@ -42,16 +42,18 @@
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">
-        @(isEdit ? "Save Changes" : "Add Contact")
-    </button>
+    <div class="form-buttons">
+        <button type="submit" class="btn btn-primary">
+            @(isEdit ? "Save Changes" : "Add Contact")
+        </button>
 
-    @if (isEdit)
-    {
-        <a asp-action="Details" asp-route-id="@Model.ContactId" class="btn btn-secondary">Cancel</a>
-    }
-    else
-    {
-        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
-    }
+        @if (isEdit)
+        {
+            <a asp-action="Details" asp-route-id="@Model.ContactId" class="btn btn-secondary">Cancel</a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+        }
+    </div>
 </form>

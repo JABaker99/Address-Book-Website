@@ -8,14 +8,22 @@
 <p>Are you sure you want to delete the following contact?</p>
 
 <dl>
-    <dt>Name</dt>
-    <dd>@Model.FirstName @Model.LastName</dd>
+    <dt>First Name</dt>
+    <dd>@Model.FirstName</dd>
+    <dt>Last Name</dt>
+    <dd>@Model.LastName</dd>
     <dt>Phone</dt>
     <dd>@Model.PhoneNumber</dd>
 </dl>
 
 <form asp-action="DeleteConfirmed" method="post">
     <input type="hidden" name="id" value="@Model.ContactId" />
-    <button type="submit">Delete</button>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+    <div class="form-buttons">
+        <button type="submit" class="btn btn-danger">
+            Delete
+        </button>
+
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+
 </form>

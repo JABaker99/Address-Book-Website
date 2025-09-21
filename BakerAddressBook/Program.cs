@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using BakerAddressBook.Data;
+
 /// <summary>
 /// Baker Address Book Web Application
 /// Author: Jacob Baker
@@ -6,9 +9,6 @@
 /// This is the entry point for the Baker Address Book ASP.NET Core application.
 /// It sets up services, middleware, routing, and starts the application.
 /// </summary>
-using Microsoft.EntityFrameworkCore;
-using BakerAddressBook.Data;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
