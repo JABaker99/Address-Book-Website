@@ -5,12 +5,36 @@
 
 <h2>Contact Details</h2>
 
-<dl>
-    <dt>First Name</dt><dd>@Model.FirstName</dd>
-    <dt>Last Name</dt><dd>@Model.LastName</dd>
-    <dt>Nickname</dt><dd>@Model.Nickname</dd>
-    <dt>Phone Number</dt><dd>@Model.PhoneNumber</dd>
-    <dt>Category</dt><dd>@Model.Category?.Name</dd>
-    <dt>Date Created</dt><dd>@Model.DateCreated.ToString("yyyy-MM-dd HH:mm")</dd>
-</dl>
- 
+<div class="card shadow-sm p-3 mb-3">
+    <dl class="row">
+        <dt class="col-sm-3">First Name</dt>
+        <dd class="col-sm-9">@Model.FirstName</dd>
+
+        <dt class="col-sm-3">Last Name</dt>
+        <dd class="col-sm-9">@Model.LastName</dd>
+
+        <dt class="col-sm-3">Nickname</dt>
+        <dd class="col-sm-9">@Model.Nickname</dd>
+
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Category?.Name</dd>
+
+        <dt class="col-sm-3">Date Created</dt>
+        <dd class="col-sm-9">@Model.DateCreated.ToString("yyyy-MM-dd HH:mm")</dd>
+    </dl>
+</div>
+
+<div class="btn-group" role="group">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+        All Contacts
+    </a>
+    <a asp-controller="Contacts" asp-action="Edit" asp-route-id="@Model.ContactId" class="btn btn-warning">
+        Edit
+    </a>
+    <a asp-controller="Contacts" asp-action="Delete" asp-route-id="@Model.ContactId" class="btn btn-danger">
+        Delete
+    </a>
+</div>
